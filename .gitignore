@@ -1,0 +1,22 @@
+.idea
+
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+
+# Logs (Symfony4)
+/var/log/*
+!var/log/.gitkeep
+
+/vendor/
+
+
+### Symfony Patch ###
+/web/css/
+/web/js/
+
+# End of https://www.toptal.com/developers/gitignore/api/phpstorm,symfony
