@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Product;
 use App\Entity\Promotion;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,6 +21,11 @@ class PromotionRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Promotion::class);
     }
+
+	public function validPromotionProduct(Product $product, \DateTimeInterface $requestDate): ?array
+	{
+		return [];
+	}
 
     public function save(Promotion $entity, bool $flush = false): void
     {

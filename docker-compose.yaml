@@ -2,6 +2,8 @@ version: '3.7'
 services:
     database:
         image: 'mariadb:latest'
+        volumes:
+            - ./mysql:/var/lib/mysql
         environment:
             MYSQL_ROOT_PASSWORD: password
             MYSQL_DATABASE: main

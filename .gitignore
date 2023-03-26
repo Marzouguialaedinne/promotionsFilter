@@ -13,6 +13,7 @@
 !var/log/.gitkeep
 
 /vendor/
+/mysql/
 
 
 ### Symfony Patch ###
