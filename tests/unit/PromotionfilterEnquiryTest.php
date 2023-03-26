@@ -10,7 +10,7 @@ use App\Tests\ServiceTest;
 class PromotionfilterEnquiryTest extends ServiceTest
 {
 	/** @test  */
-	public function promotion_filter_enquiry_correctly_apply()
+	public function promotion_filter_enquiry_correctly_apply(): void
 	{
 		$enquiryDto = new EnquiryDto();
 		$product    = new Product();
@@ -18,6 +18,8 @@ class PromotionfilterEnquiryTest extends ServiceTest
 
 		$enquiryDto->setProduct($product);
 		$enquiryDto->setQuantity(5);
+		$enquiryDto->setRequestDate("2022-11-26");
+		$enquiryDto->setVoucherCode("OU812");
 
 		/** @var PromotionFilter $promotionfilter */
 		$promotionfilter = $this->container->get(PromotionFilter::class);
@@ -27,8 +29,8 @@ class PromotionfilterEnquiryTest extends ServiceTest
 		$enquiryApplyDTO = $promotionfilter->apply($enquiryDto, ...$promotions);
 
 		$this->assertEquals(100, $enquiryApplyDTO->getPrice());
-		$this->assertEquals(50, $enquiryApplyDTO->getDiscountPrice());
-		$this->assertEquals('Black friday', $enquiryApplyDTO->getPromotionName());
+		$this->assertEquals(250, $enquiryApplyDTO->getDiscountPrice());
+		$this->assertEquals('Black Friday half price sale', $enquiryApplyDTO->getPromotionName());
 	}
 
 

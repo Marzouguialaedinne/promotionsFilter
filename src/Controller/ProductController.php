@@ -40,6 +40,7 @@ class ProductController extends AbstractController
 		$enquiryDto->setProduct($product);
 
 		$promotions = $promotionRepository->validPromotionProduct($product, date_create_immutable($enquiryDto->getRequestDate()));
+
 		// 2 : apply modification price promotions
 		$enquiryDto = $promotionFilter->apply($enquiryDto, ...$promotions);
 

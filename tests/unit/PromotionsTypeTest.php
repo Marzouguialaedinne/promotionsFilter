@@ -12,7 +12,7 @@ use App\Tests\ServiceTest;
 class PromotionsTypeTest extends ServiceTest
 {
 	/** @test  */
-	public function date_range_multiplier_correctly_value()
+	public function date_range_multiplier_correctly_value(): void
 	{
 		$promotion = new Promotion();
 		$promotion->setName('Black Friday half price sale');
@@ -29,7 +29,7 @@ class PromotionsTypeTest extends ServiceTest
 	}
 
 	/** @test  */
-	public function fixed_price_voucher_correctly_value()
+	public function fixed_price_voucher_correctly_value(): void
 	{
 		$promotion = new Promotion();
 		$promotion->setName('Voucher OU812');
@@ -47,7 +47,7 @@ class PromotionsTypeTest extends ServiceTest
 
 
 	/** @test  */
-	public function even_items_multiplier_correctly_value()
+	public function even_items_multiplier_correctly_value(): void
 	{
 		$promotion = new Promotion();
 		$promotion->setName('Buy one get one free');
@@ -62,6 +62,4 @@ class PromotionsTypeTest extends ServiceTest
 		$lowestPrice = $eventItemMultiplier->modifier(100, 5, $enquiryDto, $promotion);
 		$this->assertEquals(300, $lowestPrice);
 	}
-
-
 }
